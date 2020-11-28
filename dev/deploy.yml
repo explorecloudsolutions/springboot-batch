@@ -18,9 +18,7 @@ command_groups:
         - 'whoami'
     - scripts:
         - 'test.sh'
-  c_group_2:
-    - commands:        
-        - sudo: true
+  c_group_2:   
     - gets:
         - from: 'test.sh'
           to: 'test_new.sh'
@@ -36,9 +34,6 @@ steps:
         - r_group_1
       command_groups:
         - c_group_1
-    - remote_groups:
-        - r_group_2
-      command_groups:
-        - c_group_2
+   
     
         
