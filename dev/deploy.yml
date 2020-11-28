@@ -7,9 +7,7 @@ remote_groups:
       host: 192.168.0.14
     - name: node02
       host: 192.168.0.14
-  r_group_2:
-    - name: node03
-      host: 192.168.0.14
+
 
 command_groups:
   c_group_1:
@@ -18,7 +16,6 @@ command_groups:
         - 'whoami'
     - scripts:
         - 'test.sh'
-  c_group_2:   
     - gets:
         - from: 'test.sh'
           to: 'test_new.sh'
@@ -34,6 +31,6 @@ steps:
         - r_group_1
       command_groups:
         - c_group_1
-   
+ 
     
         
