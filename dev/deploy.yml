@@ -1,9 +1,17 @@
 config:
-  credentials_id: sshUserAcct  
+  credentials_id: sshUserAcct
+  # retry_with_prompt: true
+  # retry_and_return: true
+  # retry_count: 3
 
 remote_groups:
   r_group_1:
     - name: node01
+      host: 192.168.0.14
+    - name: node02
+      host: 192.168.0.14
+  r_group_2:
+    - name: node03
       host: 192.168.0.14
 
 command_groups:
@@ -13,12 +21,14 @@ command_groups:
         - 'whoami'
     - scripts:
         - 'test.sh'
+  c_group_2:
     - gets:
         - from: 'test.sh'
-          to: 'test_new.sh'
+          into: 'test_new.sh'
+          override: true
     - puts:
         - from: 'test.sh'
-          to: '.'
+          into: '.'
     - removes:
         - 'test.sh'
 
@@ -28,6 +38,9 @@ steps:
         - r_group_1
       command_groups:
         - c_group_1
- 
+    - remote_groups:
+        - r_group_2
+      command_groups:
+        - c_group_2
     
         
