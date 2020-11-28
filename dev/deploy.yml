@@ -5,4 +5,31 @@ remote_groups:
   r_group_1:
     - name: node01
       host: 192.168.0.14
-    
+
+command_groups:
+  c_group_1:
+    - commands:
+        - 'ls -lrt'
+        - 'whoami'
+    - scripts:
+        - 'test.sh'
+  c_group_2:
+    - gets:
+        - from: 'test.sh'
+          to: 'test_new.sh'
+    - puts:
+        - from: 'test.sh'
+          to: '.'
+    - removes:
+        - 'test.sh'
+
+steps:
+  deploy:
+    - remote_groups:
+        - r_group_1
+      command_groups:
+        - c_group_1
+    - remote_groups:
+        - r_group_2
+      command_groups:
+        - c_group_2
