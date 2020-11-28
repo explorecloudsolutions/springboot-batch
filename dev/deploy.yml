@@ -28,7 +28,7 @@ command_groups:
           override: true
     - puts:
         - from: 'test.sh'
-          into: '.'
+          into: '/home/chthota/deployment'
     - removes:
         - 'test.sh'
 
