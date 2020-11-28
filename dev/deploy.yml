@@ -1,6 +1,5 @@
 config:
-  credentials_id: sshUserAcct
-  isSudo: true
+  credentials_id: sshUserAcct  
 
 remote_groups:
   r_group_1:
@@ -22,12 +21,12 @@ command_groups:
   c_group_2:
     - commands:
         - 'ls -lrt'
-    - gets:
-        - from: 'test.sh'
-          to: 'test_new.sh'
     - puts:
         - from: 'test.sh'
           to: '.'
+    - gets:
+        - from: 'test.sh'
+          to: 'test_new.sh'    
     - removes:
         - 'test.sh'
 
