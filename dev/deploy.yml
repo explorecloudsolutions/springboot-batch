@@ -19,6 +19,8 @@ command_groups:
     - scripts:
         - 'test.sh'
   c_group_2:
+    - commands:
+        - 'ls -lrt'
     - gets:
         - from: 'test.sh'
           to: 'test_new.sh'
