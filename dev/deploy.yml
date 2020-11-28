@@ -1,5 +1,6 @@
 config:
   credentials_id: sshUserAcct
+  isSudo: true
 
 remote_groups:
   r_group_1:
