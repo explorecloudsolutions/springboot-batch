@@ -19,14 +19,14 @@ command_groups:
     - scripts:
         - 'test.sh'
   c_group_2:
-    - commands:
-        - 'ls -lrt'
+    - commands:        
+        - sudo: true
+    - gets:
+        - from: 'test.sh'
+          to: 'test_new.sh'
     - puts:
         - from: 'test.sh'
           to: '.'
-    - gets:
-        - from: 'test.sh'
-          to: 'test_new.sh'    
     - removes:
         - 'test.sh'
 
